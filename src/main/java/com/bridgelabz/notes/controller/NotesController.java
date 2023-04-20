@@ -52,7 +52,7 @@ public class NotesController {
 	}
 
 	// delete note
-	@DeleteMapping("/{id}/{token}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<ResponseDTO> delete(@PathVariable int id, @RequestHeader String token) {
 			String note = inoteService.deleteNote(id,token);
 			ResponseDTO responseDTO = new ResponseDTO(note, "Deleted Successfully");
@@ -63,15 +63,15 @@ public class NotesController {
 	@GetMapping("/all")
 	public ResponseEntity<ResponseDTO> getAll(@RequestHeader String token) {
 		List<NotesModel> noteList = inoteService.getAll(token);
-		ResponseDTO responseDTO = new ResponseDTO("All Notes, Number of Books: " + noteList.size(), noteList);
+		ResponseDTO responseDTO = new ResponseDTO("Number of notes: " + noteList.size(), noteList);
 		return new ResponseEntity<>(responseDTO, HttpStatus.OK);
 	}
 
 	// Get note by ID
 	@GetMapping("/{id}")
-	public ResponseEntity<ResponseDTO> getById(@PathVariable int id) {
-		NotesModel notesModel = inoteService.getById(id);
-		ResponseDTO responseDTO = new ResponseDTO("Book details with ID: " + id, notesModel);
+	public ResponseEntity<ResponseDTO> getById(@PathVariable int id, @RequestHeader String token) {
+		NotesModel notesModel = inoteService.getById(id, token);
+		ResponseDTO responseDTO = new ResponseDTO("Note details with ID: " + id, notesModel);
 		return new ResponseEntity<>(responseDTO, HttpStatus.OK);
 	}
 

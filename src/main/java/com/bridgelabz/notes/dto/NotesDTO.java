@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class NotesDTO {
 
-	@NotNull
     private String title;
-    @NotNull
     private String description;
     private String color;
     @NotNull(message = "UserID cannot be NULL")

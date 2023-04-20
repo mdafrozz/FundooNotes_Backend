@@ -7,9 +7,9 @@ import com.bridgelabz.notes.model.LabelModel;
 
 public interface ILabelService {
 
-	public LabelModel addLabel(LabelDTO labelDTO);
-	public LabelModel update(LabelDTO labelDTO, int id);
-	public String delete(int id, String token);
-	public List<LabelModel> getAll();
-	public LabelModel getById(int id);
-}
+	public LabelModel addLabel(LabelDTO labelDTO, String token);
+	public LabelModel update(LabelDTO labelDTO, int id, String token);
+	public String delete(int noteId, int labelId, String token);
+	public List<LabelModel> getAll(String token);
+	public LabelModel getById(int id, String token);
+	}

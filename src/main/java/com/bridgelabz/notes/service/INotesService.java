@@ -12,7 +12,7 @@ public interface INotesService {
 	public NotesModel update(NotesDTO notesDTO, String token, int id);
 	public String deleteNote(int id, String token);
 	public List<NotesModel> getAll(String token);
-	public NotesModel getById(int id);
+	public NotesModel getById(int id, String token);
 	public NotesModel pinNote(String token, int id);
 	public NotesModel trashNote(String token, int id);
 	public NotesModel archiveNote(String token, int id);

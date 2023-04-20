@@ -12,8 +12,6 @@ public class LabelDTO {
 
 	@NotEmpty
 	String name;
-	@NotNull(message = "UserID cannot be NULL")
-	private int user_id;
 	@NotNull(message = "NoteID cannot be NULL")
 	private int note_id;
 }
